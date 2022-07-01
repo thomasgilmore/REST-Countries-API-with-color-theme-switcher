@@ -5,7 +5,7 @@ const AppState = {
 
 }
 
-const ContriesContext = createContext();
+const CountriesContext = createContext();
 
 const CountriesContextProvider = ({ children }) => {
   const [inputValue, setInputValue] = useState('');
@@ -44,12 +44,11 @@ const CountriesContextProvider = ({ children }) => {
     handleSearchSubmit
   }
 
-  console.log(countryList);
   return (
-    <ContriesContext.Provider value={value}>
+    <CountriesContext.Provider value={value}>
       {children}
-    </ContriesContext.Provider>
+    </CountriesContext.Provider>
   )
 }
 
-export { CountriesContextProvider, ContriesContext }
+export { CountriesContextProvider, CountriesContext }
