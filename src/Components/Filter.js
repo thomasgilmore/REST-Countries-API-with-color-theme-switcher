@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { CountriesContext } from '../Context/Context';
+import { styled } from '@mui/system';
 import InputUnstyled from '@mui/base/InputUnstyled';
 import SearchIcon from '@mui/icons-material/Search';
 import InputLabel from '@mui/material/InputLabel';
@@ -9,9 +10,22 @@ import Select from '@mui/material/Select';
 
 export default function Filter() {
   const { handleInputChange } = useContext(CountriesContext);
+
+  const StyledInputElement = styled('input')(
+    ({ theme }) => `
+    width: 200px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    padding: 10px;
+    `
+  )
+
   return (
     <div className='flex m-5 justify-between'>
-      <InputUnstyled className='m-1' onChange={handleInputChange} startAdornment={<SearchIcon />} placeholder='Search for a country...'/>
+    <div className='flex items-center rounded-lg p-1 border-2'>
+      <SearchIcon />
+      <InputUnstyled className='m-1' onChange={handleInputChange} placeholder='Search for a country...'/>
+    </div>
       <FormControl sx={{ width: 200 }}>
         <InputLabel id="demo-simple-select-label">Filter by Region</InputLabel>
         <Select
