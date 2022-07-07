@@ -11,6 +11,7 @@ const CountriesContextProvider = ({ children }) => {
   const [inputValue, setInputValue] = useState('');
   const [countryToDisplay, setCountryToDisplay] = useState('');
   const [countryList, setCountryList] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -23,6 +24,10 @@ const CountriesContextProvider = ({ children }) => {
         .then((result) => {
           setCountryList(result);
         })
+  }
+
+  const handleDarkMode = () => {
+    setDarkMode(!darkMode);
   }
 
   useEffect(() => {
@@ -41,7 +46,10 @@ const CountriesContextProvider = ({ children }) => {
     countryList, 
     setCountryList,
     handleInputChange,
-    handleSearchSubmit
+    handleSearchSubmit,
+    darkMode, 
+    setDarkMode,
+    handleDarkMode
   }
 
   return (
