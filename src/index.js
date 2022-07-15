@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import CssBaseline from '@mui/material/CssBaseline';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -10,9 +11,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <CountriesContextProvider>
-        <App />
-      </CountriesContextProvider>
+      <CssBaseline>
+        <CountriesContextProvider>
+          <App />
+        </CountriesContextProvider>
+      </CssBaseline>
     </React.StrictMode>
   </BrowserRouter>
 );

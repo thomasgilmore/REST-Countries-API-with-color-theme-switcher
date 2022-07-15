@@ -1,3 +1,4 @@
+import { createTheme } from "@mui/material/styles";
 import { createContext, useState, useEffect } from "react"
 import { API_URL } from "../Constants/Constants";
 
@@ -12,6 +13,12 @@ const CountriesContextProvider = ({ children }) => {
   const [countryToDisplay, setCountryToDisplay] = useState('');
   const [countryList, setCountryList] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
+
+  const theme = createTheme({
+    palette: {
+      mode: darkMode ? 'dark' : 'light',
+    },
+  });
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -49,7 +56,8 @@ const CountriesContextProvider = ({ children }) => {
     handleSearchSubmit,
     darkMode, 
     setDarkMode,
-    handleDarkMode
+    handleDarkMode,
+    theme
   }
 
   return (
