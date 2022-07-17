@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { CountriesContext } from '../Context/Context'; 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -6,8 +7,9 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 export default function CountryCard({ img, name, population, region, capital }) {
+  const { darkMode  } = useContext(CountriesContext);
   return (
-    <Card sx={{ maxWidth: 300 }}>
+    <Card sx={{ maxWidth: 300, backgroundColor: darkMode? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)' }}>
       <CardActionArea>
         <CardMedia
           component="img"
