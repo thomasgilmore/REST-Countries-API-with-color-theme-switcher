@@ -5,10 +5,10 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 
 function App() {
-  const { theme } = useContext(CountriesContext);
+  const { theme, darkMode } = useContext(CountriesContext);
   return (
     <ThemeProvider theme={theme}>
-      <div>
+      <div style={{ backgroundColor: darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 98%)' }}>
         <Routes>
           <Route path="*" element={<Home />} />
         </Routes>
