@@ -47,12 +47,20 @@ const CountriesContextProvider = ({ children }) => {
   }
   
   const handleSearchSubmit = (event) => {
-    event.preventDefault();
-    fetch(`${API_URL}/name/${inputValue}`)
-        .then(res => res.json())
-        .then((result) => {
-          setCountryList(result);
-        })
+    if (event.target.value === '') {
+      fetch(`${API_URL}/all`)
+      .then(res => res.json())
+      .then((result) => {
+        setCountryList(result);
+      })
+    } else {
+      event.preventDefault();
+      fetch(`${API_URL}/name/${event.target.value}`)
+          .then(res => res.json())
+          .then((result) => {
+            setCountryList(result);
+          })
+    }
   }
 
   const handleDarkMode = () => {

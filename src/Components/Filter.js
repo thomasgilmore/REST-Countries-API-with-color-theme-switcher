@@ -9,7 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 export default function Filter() {
-  const { handleInputChange } = useContext(CountriesContext);
+  const { handleInputChange, handleSearchSubmit } = useContext(CountriesContext);
 
   const StyledInputElement = styled('input')(
     ({ theme }) => `
@@ -24,14 +24,14 @@ export default function Filter() {
     <div className='flex m-5 justify-between'>
     <div className='flex items-center rounded-lg p-1 border-2'>
       <SearchIcon />
-      <InputUnstyled className='m-1' onChange={handleInputChange} placeholder='Search for a country...'/>
+      <InputUnstyled className='m-1' onChange={handleSearchSubmit} placeholder='Search for a country...'/>
     </div>
       <FormControl sx={{ width: 200 }}>
         <InputLabel id="demo-simple-select-label">Filter by Region</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          // value={age}
+          value=""
           label="Region"
           // onChange={handleChange}
         >
