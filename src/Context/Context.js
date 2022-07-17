@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 import { createContext, useState, useEffect } from "react"
-import { API_URL } from "../Constants/Constants";
+import { API_URL, API_URL_V3 } from "../Constants/Constants";
 
 const AppState = {
 
@@ -13,6 +13,7 @@ const CountriesContextProvider = ({ children }) => {
   const [countryToDisplay, setCountryToDisplay] = useState('');
   const [countryList, setCountryList] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
+  const [region, setRegion] = useState('');
 
   const theme = createTheme({
     palette: {
@@ -63,6 +64,20 @@ const CountriesContextProvider = ({ children }) => {
     }
   }
 
+  const handleSelectRegionSearch = (event) => {
+      fetch(`${API_URL}/region/${event.target.value}`)
+            .then(res => res.json())
+            .then((result) => {
+              setCountryList(result);
+              console.log(result);
+            })
+  }
+
+  const handleRegionChange = (event) => {
+    setRegion(event.target.value);
+    handleSelectRegionSearch();
+  }
+
   const handleDarkMode = () => {
     setDarkMode(!darkMode);
   }
@@ -87,7 +102,11 @@ const CountriesContextProvider = ({ children }) => {
     darkMode, 
     setDarkMode,
     handleDarkMode,
-    theme
+    theme,
+    region, 
+    setRegion,
+    handleRegionChange,
+    handleSelectRegionSearch
   }
 
   return (
