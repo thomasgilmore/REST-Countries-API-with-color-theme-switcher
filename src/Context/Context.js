@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { createContext, useState, useEffect } from "react"
+import { createContext, useState, useEffect } from "react";
 import { API_URL, API_URL_V3 } from "../Constants/Constants";
 
 const AppState = {
@@ -14,6 +14,7 @@ const CountriesContextProvider = ({ children }) => {
   const [countryList, setCountryList] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
   const [region, setRegion] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState([]);
 
   const theme = createTheme({
     palette: {
@@ -82,6 +83,15 @@ const CountriesContextProvider = ({ children }) => {
     setDarkMode(!darkMode);
   }
 
+  const handleSelectedCountryChange = (event) => {
+    event.preventDefault();
+    const filteredArray = countryList.filter((country) => {
+      return country.name === event.target.name;
+    });
+    setSelectedCountry(filteredArray);
+    window.location.href = '/country';
+  }
+
   useEffect(() => {
     fetch(`${API_URL}/all`)
       .then(res => res.json())
@@ -106,7 +116,10 @@ const CountriesContextProvider = ({ children }) => {
     region, 
     setRegion,
     handleRegionChange,
-    handleSelectRegionSearch
+    handleSelectRegionSearch,
+    selectedCountry, 
+    setSelectedCountry,
+    handleSelectedCountryChange
   }
 
   return (
