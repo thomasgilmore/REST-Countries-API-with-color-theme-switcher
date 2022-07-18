@@ -7,27 +7,29 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 export default function CountryCard({ img, name, population, region, capital }) {
-  const { darkMode  } = useContext(CountriesContext);
+  const { darkMode, handleSelectedCountryChange  } = useContext(CountriesContext);
   return (
-    <Card sx={{ maxWidth: 300, backgroundColor: darkMode? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)' }}>
-      <CardActionArea>
+    <Card name={name} onClick={handleSelectedCountryChange} sx={{ maxWidth: 300, backgroundColor: darkMode? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)' }}>
+      <CardActionArea name={name}>
         <CardMedia
           component="img"
-          height="140"
+          name={name}
+          // height="140"
           image={img}
           alt=""
+          style={{ height: 230, objectFit: 'contain' }}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+        <CardContent name={name}>
+          <Typography gutterBottom variant="h5" component="div" name={name}>
             {name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" name={name}>
             Population: {population}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" name={name}>
             Region: {region}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" name={name}>
             Capital: {capital}
           </Typography>
         </CardContent>
