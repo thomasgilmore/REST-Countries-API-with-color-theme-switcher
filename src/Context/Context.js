@@ -89,7 +89,12 @@ const CountriesContextProvider = ({ children }) => {
       return country.name === event.target.name;
     });
     setSelectedCountry(filteredArray);
+    localStorage.setItem("selectedCountry", JSON.stringify(filteredArray));
     window.location.href = '/country';
+  }
+
+  const handleBackButton = () => {
+    window.location.href = '/';
   }
 
   useEffect(() => {
@@ -119,7 +124,8 @@ const CountriesContextProvider = ({ children }) => {
     handleSelectRegionSearch,
     selectedCountry, 
     setSelectedCountry,
-    handleSelectedCountryChange
+    handleSelectedCountryChange,
+    handleBackButton
   }
 
   return (
