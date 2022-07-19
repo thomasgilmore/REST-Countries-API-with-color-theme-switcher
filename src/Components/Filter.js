@@ -12,9 +12,9 @@ export default function Filter() {
 
   return (
     <div className='flex m-5 justify-between'>
-    <div className='flex items-center rounded-lg p-1 border-2'>
-      <SearchIcon style={{ color : darkMode ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 52%)' }} />
-      <Input className='m-1' onChange={handleSearchSubmit} style={{ backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)' }} placeholder='Search for a country...'/>
+    <div className='flex items-center rounded-lg p-1 border-2' style={{ backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)', width: '40%', minWidth: 275, maxWidth: 400 }}>
+      <SearchIcon style={{ color : darkMode ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 52%)',  }} />
+      <Input className='m-1' onChange={handleSearchSubmit} style={{ backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)', width: '100%' }} placeholder='Search for a country...'/>
     </div>
       <FormControl sx={{ width: 200, backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)' }}>
         <InputLabel id="demo-simple-select-label">Filter by Region</InputLabel>
@@ -25,12 +25,12 @@ export default function Filter() {
           label="Region"
           onChange={handleSelectRegionSearch}
         >
-          <MenuItem value=""><em>None</em></MenuItem>
-          <MenuItem value="Africa">Africa</MenuItem>
-          <MenuItem value="Americas">Americas</MenuItem>
-          <MenuItem value="Asia">Asia</MenuItem>
-          <MenuItem value="Europe">Europe</MenuItem>
-          <MenuItem value="Oceania">Oceania</MenuItem>
+          <MenuItem style={{ backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)' }} value=""><em>None</em></MenuItem>
+          <MenuItem style={{ backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)' }} value="Africa">Africa</MenuItem>
+          <MenuItem style={{ backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)' }} value="Americas">Americas</MenuItem>
+          <MenuItem style={{ backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)' }} value="Asia">Asia</MenuItem>
+          <MenuItem style={{ backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)' }} value="Europe">Europe</MenuItem>
+          <MenuItem style={{ backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)' }} value="Oceania">Oceania</MenuItem>
         </Select>
       </FormControl>
     </div>
