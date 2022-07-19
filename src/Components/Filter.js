@@ -16,14 +16,15 @@ export default function Filter() {
       <SearchIcon style={{ color : darkMode ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 52%)',  }} />
       <Input className='m-1' onChange={handleSearchSubmit} style={{ backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)', width: '100%' }} placeholder='Search for a country...'/>
     </div>
-      <FormControl sx={{ width: 200, backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)' }}>
-        <InputLabel id="demo-simple-select-label">Filter by Region</InputLabel>
+      <FormControl style={{ width: 200, backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)' }}>
+        <InputLabel style={{ color : darkMode ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 52%)' }} id="demo-simple-select-label">Region</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={region}
-          label="Region"
+          label="region"
           onChange={handleSelectRegionSearch}
+          style={{ color : darkMode ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 52%)' }}
         >
           <MenuItem style={{ backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)' }} value=""><em>None</em></MenuItem>
           <MenuItem style={{ backgroundColor : darkMode ? 'hsl(207, 26%, 17%)' : 'hsl(0, 0%, 100%)' }} value="Africa">Africa</MenuItem>

@@ -62,12 +62,20 @@ const CountriesContextProvider = ({ children }) => {
   }
 
   const handleSelectRegionSearch = (event) => {
+    if (event.target.value == "") {
+      fetch(`${API_URL}/all`)
+      .then(res => res.json())
+      .then((result) => {
+        setCountryList(result);
+      })
+    } else {
       fetch(`${API_URL}/region/${event.target.value}`)
             .then(res => res.json())
             .then((result) => {
               setCountryList(result);
-              console.log(result);
+              setRegion(event.target.value);
             })
+    }
   }
 
   const handleRegionChange = (event) => {
