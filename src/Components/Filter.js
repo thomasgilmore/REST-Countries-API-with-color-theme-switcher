@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { CountriesContext } from '../Context/Context';
-import { styled } from '@mui/system';
 import SearchIcon from '@mui/icons-material/Search';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
