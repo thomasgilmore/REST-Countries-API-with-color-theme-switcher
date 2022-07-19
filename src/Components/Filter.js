@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { CountriesContext } from '../Context/Context';
 import { styled } from '@mui/system';
-import InputUnstyled from '@mui/base/InputUnstyled';
 import SearchIcon from '@mui/icons-material/Search';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -10,16 +9,7 @@ import Select from '@mui/material/Select';
 import { Input } from '@mui/material';
 
 export default function Filter() {
-  const { handleInputChange, handleSearchSubmit, region, handleRegionChange, handleSelectRegionSearch, darkMode } = useContext(CountriesContext);
-
-  const StyledInputElement = styled('input')(
-    ({ theme }) => `
-    width: 200px;
-    border: 1px solid gray;
-    border-radius: 8px;
-    padding: 10px;
-    `
-  )
+  const { handleSearchSubmit, region, handleSelectRegionSearch, darkMode } = useContext(CountriesContext);
 
   return (
     <div className='flex m-5 justify-between'>

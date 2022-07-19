@@ -1,10 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 import { createContext, useState, useEffect } from "react";
-import { API_URL, API_URL_V3 } from "../Constants/Constants";
-
-const AppState = {
-
-}
+import { API_URL } from "../Constants/Constants";
 
 const CountriesContext = createContext();
 

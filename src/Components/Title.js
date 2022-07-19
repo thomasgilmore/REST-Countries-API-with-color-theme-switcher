@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { CountriesContext } from '../Context/Context';
-import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
