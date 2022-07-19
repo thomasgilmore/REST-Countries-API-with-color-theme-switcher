@@ -62,7 +62,7 @@ const CountriesContextProvider = ({ children }) => {
   }
 
   const handleSelectRegionSearch = (event) => {
-    if (event.target.value == "") {
+    if (event.target.value === "") {
       fetch(`${API_URL}/all`)
       .then(res => res.json())
       .then((result) => {
